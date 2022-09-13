@@ -1,0 +1,139 @@
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,700;1,500;1,600&family=Quicksand&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<div class="h-full relative flex fontSize font-semibold">
+  <div class="{{menu?'w-[72px] flex justify-center':'w-[330px] pl-6'}}  py-[56px] h-full" id="sidebar" *ngIf="check">
+    <div>
+      <img class="w-10 h-10 ml-2 mb-4 cursor-pointer duration-300"
+        src="{{menu?'/assets/icons/sidebar.svg':'/assets/icons/BackArrow.svg'}}" (click)="openMenu()">
+
+      <div>
+        <div>
+          <div class="flex">
+            <img class="w-[56px] rounded-full" src="/assets/icons/Adminn.png">
+            <div *ngIf="!menu" class="ml-2">
+              <p class="ml-3 text-scgray">Admin SS0</p>
+              <p class="ml-1 text-003760 text-base font-semibold">User</p>
+            </div>
+          </div>
+          <p class="border-b border-linegray mt-3 "></p>
+        </div>
+
+        <div routerLink="/home"
+          class="{{url==='/home'?'fill-textblue':''}} {{(url==='/home' && !menu)?'fill-white text-white bg-textblue':''}} hover:fill-white hover:text-white text-textblue cursor-pointer {{menu?'fill-blueBADCEE hover:fill-textblue':'fill-textblue hover:bg-textblue  hover:fill-white'}}  rounded-l-xl pl-2 py-2 mt-5 flex">
+          <svg class="w-10 h-10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M20.2567 11.6873L11.694 3.19345C11.6323 3.13212 11.5591 3.08347 11.4785 3.05028C11.3979 3.01709 11.3114 3 11.2242 3C11.1369 3 11.0505 3.01709 10.9699 3.05028C10.8892 3.08347 10.816 3.13212 10.7544 3.19345L2.1916 11.6873C1.94214 11.9349 1.80078 12.2713 1.80078 12.6221C1.80078 13.3506 2.39741 13.9428 3.13124 13.9428H4.03346V20.0036C4.03346 20.3689 4.33073 20.664 4.69869 20.664H9.89371V16.0415H12.222V20.664H17.7497C18.1176 20.664 18.4149 20.3689 18.4149 20.0036V13.9428H19.3171C19.6705 13.9428 20.0094 13.8045 20.2588 13.5548C20.7764 13.0389 20.7764 12.2032 20.2567 11.6873Z">
+            </path>
+          </svg>
+          <span *ngIf="!menu" class="mt-3 ml-3 hover:text-white">
+            Trang Chủ
+          </span>
+        </div>
+        <div routerLink="/listuser"
+          class=" focus:fill-textblue  {{(url==='/listuser' && !menu)?'fill-white text-white bg-textblue':''}}  {{url==='/listuser'?'fill-textblue':'fill-blueBADCEE'}} hover:text-white text-textblue cursor-pointer {{menu?'fill-blueBADCEE hover:fill-textblue':'fill-textblue hover:bg-textblue  hover:fill-white'}} rounded-l-xl pl-2 py-2 mt-5 flex">
+          <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_1336_7249)">
+              <path
+                d="M19.5 20C22.815 20 25.5 17.315 25.5 14C25.5 10.685 22.815 8 19.5 8C16.185 8 13.5 10.685 13.5 14C13.5 17.315 16.185 20 19.5 20ZM19.5 23C15.495 23 7.5 25.01 7.5 29V32H31.5V29C31.5 25.01 23.505 23 19.5 23Z">
+              </path>
+            </g>
+            <defs>
+              <clipPath id="clip0_1336_7249">
+                <rect width="40" height="40"></rect>
+              </clipPath>
+            </defs>
+          </svg>
+
+          <span *ngIf="!menu" class="mt-3 ml-3 hover:text-white">
+            Quản lý người dùng
+          </span>
+        </div>
+        <div (click)="openEdit()"
+          class=" {{(profile || url==='/changepassword')?'stroke-textblue hover:bg-textblue hover:stroke-white':''}} focus:stroke-textblue hover:text-white text-textblue cursor-pointer {{menu?'stroke-blueBADCEE hover:stroke-textblue':'stroke-textblue hover:bg-textblue hover:stroke-white'}}  rounded-l-xl pl-2 py-2 mt-5 flex cursor-pointer">
+          <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M16.474 5.40783L18.592 7.52483M17.836 3.54283L12.109 9.26983C11.8131 9.56532 11.6113 9.94181 11.529 10.3518L11 12.9998L13.648 12.4698C14.058 12.3878 14.434 12.1868 14.73 11.8908L20.457 6.16383C20.6291 5.99173 20.7656 5.78742 20.8588 5.56256C20.9519 5.33771 20.9998 5.09671 20.9998 4.85333C20.9998 4.60994 20.9519 4.36895 20.8588 4.14409C20.7656 3.91923 20.6291 3.71492 20.457 3.54283C20.2849 3.37073 20.0806 3.23421 19.8557 3.14108C19.6309 3.04794 19.3899 3 19.1465 3C18.9031 3 18.6621 3.04794 18.4373 3.14108C18.2124 3.23421 18.0081 3.37073 17.836 3.54283V3.54283Z"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path
+              d="M19 15V18C19 18.5304 18.7893 19.0391 18.4142 19.4142C18.0391 19.7893 17.5304 20 17 20H6C5.46957 20 4.96086 19.7893 4.58579 19.4142C4.21071 19.0391 4 18.5304 4 18V7C4 6.46957 4.21071 5.96086 4.58579 5.58579C4.96086 5.21071 5.46957 5 6 5H9"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <div *ngIf="!menu" class="flex origin-left">
+            <span class=" mt-3 ml-3 hover:text-white whitespace-nowrap">Chỉnh sửa tài khoản</span>
+            <div class="mt-1">
+              <svg class="h-10 w-10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M16.59 8.58984L12 13.1698L7.41 8.58984L6 9.99984L12 15.9998L18 9.99984L16.59 8.58984Z"></path>
+              </svg>
+            </div>
+          </div>
+
+        </div>
+        <div *ngIf="edit" class=" w-auto">
+          <div>
+            <div (click)="open()" routerLink="/profile/{{userid}}"
+              class="  {{profile?'fill-white  text-white bg-textblue':' text-4EA0D1'}}  hover:text-blue fill-blue hover:bg-4EA0D1 rounded-l-xl pl-10 py-2 mt-5 flex">
+              <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_1336_7249)">
+                  <path
+                    d="M19.5 20C22.815 20 25.5 17.315 25.5 14C25.5 10.685 22.815 8 19.5 8C16.185 8 13.5 10.685 13.5 14C13.5 17.315 16.185 20 19.5 20ZM19.5 23C15.495 23 7.5 25.01 7.5 29V32H31.5V29C31.5 25.01 23.505 23 19.5 23Z">
+                  </path>
+                </g>
+                <defs>
+                  <clipPath id="clip0_1336_7249">
+                    <rect width="40" height="40"></rect>
+                  </clipPath>
+                </defs>
+              </svg>
+
+              <span *ngIf="!menu" class="mt-3 ml-3 ">
+                Thông tin cá nhân
+              </span>
+            </div>
+
+            <div>
+              <div (click)="close()" routerLink="/changepassword"
+                class="{{url==='/changepassword'?'fill-white  text-white bg-textblue':'text-4EA0D1'}} hover:text-blue  fill-blue   hover:bg-4EA0D1 rounded-l-xl pl-10 py-2 mt-5 flex">
+                <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M28.5 18H20.15C19.33 15.67 17.11 14 14.5 14C11.19 14 8.5 16.69 8.5 20C8.5 23.31 11.19 26 14.5 26C17.11 26 19.33 24.33 20.15 22H20.5L22.5 24L24.5 22L26.5 24L30.5 19.96L28.5 18ZM14.5 23C12.85 23 11.5 21.65 11.5 20C11.5 18.35 12.85 17 14.5 17C16.15 17 17.5 18.35 17.5 20C17.5 21.65 16.15 23 14.5 23Z">
+                  </path>
+                </svg>
+
+                <span *ngIf="!menu" class="mt-3 ml-3 ">
+                  Change Password
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col justify-between  relative">
+          <div routerLink="/login" (click)="logOut()"
+            class=" focus:fill-textblue hover:fill-white hover:text-white text-textblue cursor-pointer {{menu?'fill-blueBADCEE hover:fill-textblue pl-2':'fill-textblue hover:bg-textblue px-[46px] py-2 hover:fill-white border-textblue border'}}  rounded-full flex  mt-28">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24.3125 16.0625L28.25 20L24.3125 23.9375" stroke="#00477D" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M17.75 20H28.25" stroke="#00477D" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path
+                d="M17.75 28.25H12.5C12.3011 28.25 12.1103 28.171 11.9697 28.0303C11.829 27.8897 11.75 27.6989 11.75 27.5V12.5C11.75 12.3011 11.829 12.1103 11.9697 11.9697C12.1103 11.829 12.3011 11.75 12.5 11.75H17.75"
+                stroke="#00477D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+
+            <span *ngIf="!menu" class="mt-3 ml-3 hover:text-white   ">
+              Đăng xuất
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class=" w-full pl-[60px] bg-white">
+  </div>
+
+</div>

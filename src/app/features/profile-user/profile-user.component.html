@@ -1,0 +1,206 @@
+<div
+  class="w-full flex  pr-[200px] "
+  [formGroup]="form"
+>
+  <div class="pl-[88px] w-full pb-[230px]">
+    <div>
+      <p class="text-textblue text-[34px] leading-9 font-semibold">User Profile</p>
+    </div>
+    <div class="flex justify-end my-0">
+      <input
+        type="button"
+        class="primary-button"
+        value="Edit"
+        (click)="edit()"
+      >
+    </div>
+    <div class="w-full flex  gap-[100px] text-[14px] leading-5 tracking-wider {{isEdit?'opacity-50 ':'opacity-100'}}">
+      <div class=" min-w-[280px] max-w-[330px]">
+        <div class="w-[770px] h-auto py-[47px] px-[32px]">
+          <div class="flex ">
+            <div class="mr-[40px]">
+              <div>
+                <app-primary-input
+                  [Isdisabled]="isEdit"
+                  title="First name"
+                  formControlName="fistname"
+                  [formFieldControl]="fields.fistname"
+                  [(ngModel)]="txtfirstname"
+                  [errrorMessages]="FieldErrors"
+                ></app-primary-input>
+              </div>
+              <div class="mt-6">
+                <app-primary-input
+                  [Primary]="false"
+                  [Isdisabled]="true"
+                  formControlName="email"
+                  [formFieldControl]="fields.email"
+                  [(ngModel)]="txtEmail"
+                  [errrorMessages]="FieldErrors"
+                  title="Email"
+                ></app-primary-input>
+              </div>
+              <div class="mt-6">
+                <div>
+                  <app-input-date></app-input-date>
+                </div>
+              </div>
+              <div class="mt-6">
+                <app-primary-input
+                  [Primary]="false"
+                  [Isdisabled]="isEdit"
+                  title="ID/Passport number"
+                  placeholder="ID/Passport number"
+                  formControlName="idpassport"
+                  [formFieldControl]="fields.idpassport"
+                  [(ngModel)]="txtIdpassport"
+                  [errrorMessages]="FieldErrors"
+                ></app-primary-input>
+              </div>
+              <div class="mt-6">
+                <app-primary-input
+                  [Isdisabled]="isEdit"
+                  [Primary]="false"
+                  title="Phone number"
+                  placeholder="Phone number"
+                  formControlName="phonenumber"
+                  [formFieldControl]="fields.phonenumber"
+                  [(ngModel)]="txtPhoneNumber"
+                  [errrorMessages]="FieldErrors"
+                ></app-primary-input>
+              </div>
+            </div>
+            <div>
+              <div>
+                <app-primary-input
+                  [Isdisabled]="isEdit"
+                  [formFieldControl]="fields.lastname"
+                  formControlName="lastname"
+                  [errrorMessages]="FieldErrors"
+                  [(ngModel)]="txtlastname"
+                  title="Last name"
+                ></app-primary-input>
+              </div>
+              <div class="mt-6">
+                <app-primary-input
+                  [formFieldControl]="fields.userId"
+                  formControlName="userId"
+                  [errrorMessages]="FieldErrors"
+                  [(ngModel)]="txtUserId"
+                  [Isdisabled]="true"
+                  title="User ID"
+                ></app-primary-input>
+              </div>
+              <div class="mt-6">
+                <label>Gender</label>
+                <div
+                  class="flex justify-around mt-4 text-scgray"
+                  *ngIf="isEdit"
+                >
+                  <div class="flex">
+                    <img
+                      src="{{checkedSex==='male'?'/assets/icons/toggle-check-dis.svg':'/assets/icons/toggle-none-dis.svg'}}"
+                      (click)=" checkSex('male')"
+                      class="mr-1 w-5 h-5"
+                    >
+                    <p>Male</p>
+                  </div>
+                  <div class="flex">
+                    <img
+                      src="{{checkedSex==='female' ?'/assets/icons/toggle-check-dis.svg':'/assets/icons/toggle-none-dis.svg'}}"
+                      (click)="checkSex('female')"
+                      class="mr-1 w-5 h-5"
+                    >
+                    <p>Female</p>
+                  </div>
+                  <div class="flex">
+                    <img
+                      src="{{ checkedSex === 'other'? '/assets/icons/toggle-check-dis.svg':'/assets/icons/toggle-none-dis.svg'}}"
+                      (click)="checkSex('other')"
+                      class="mr-1 w-5 h-5"
+                    >
+                    <p>Other</p>
+                  </div>
+                </div>
+                <div
+                  class="flex justify-around mt-4 text-textblue"
+                  *ngIf="!isEdit"
+                >
+                  <div class="flex">
+                    <img
+                      src="{{checkedSex==='male'?'/assets/icons/toggle-true.svg':'/assets/icons/toggle-false.svg'}}"
+                      (click)=" checkSex('male')"
+                      class="mr-1"
+                    >
+                    <p>Male</p>
+                  </div>
+                  <div class="flex">
+                    <img
+                      src="{{checkedSex==='female' ?'/assets/icons/toggle-true.svg':'/assets/icons/toggle-false.svg'}}"
+                      (click)="checkSex('female')"
+                      class="mr-1"
+                    >
+                    <p>Female</p>
+                  </div>
+                  <div class="flex">
+                    <img
+                      src="{{ checkedSex === 'other'? '/assets/icons/toggle-true.svg':'/assets/icons/toggle-false.svg'}}"
+                      (click)="checkSex('other')"
+                      class="mr-1"
+                    >
+                    <p>Other</p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-10">
+                <app-primary-input
+                  [Primary]="false"
+                  [Isdisabled]="isEdit"
+                  [formFieldControl]="fields.country"
+                  formControlName="country"
+                  [errrorMessages]="FieldErrors"
+                  [(ngModel)]="txtCountry"
+                  title="Country"
+                  placeholder="Country"
+                ></app-primary-input>
+              </div>
+              <div class="mt-6">
+                <app-primary-input
+                  [Isdisabled]="isEdit"
+                  [Primary]="false"
+                  formControlName="address"
+                  [formFieldControl]="fields.address"
+                  [(ngModel)]="txtAddress"
+                  [errrorMessages]="FieldErrors"
+                  title="Address"
+                  placeholder="Address"
+                ></app-primary-input>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-between ">
+      <input
+        type="button"
+        class="w-[120px] cursor-pointer text-[16px] leading-6 font-semibold tracking-wider h-[50px] rounded-[16px] {{!status?'text-red bg-reddeactive':'text-textgre bg-greenactive'}} "
+        value="{{status?'actived':'deactive'}}"
+        (click)="changestatus()"
+      >
+      <input
+        [disabled]="isEdit"
+        type="button"
+        class="primary-button disabled:bg-textblue disabled:text-white"
+        value="Save"
+        (click)="updateUser()"
+      >
+    </div>
+  </div>
+</div>
+<app-toast
+  id="notifi"
+  class=" "
+  statusToast="{{statusToast}}"
+  MessToast="{{MessToast}}"
+></app-toast>

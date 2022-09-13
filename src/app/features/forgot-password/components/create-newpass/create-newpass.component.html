@@ -1,0 +1,45 @@
+<div class="flex font-Mulish w-full h-full">
+  <div class="w-[40%]">
+    <div class="max-w-[600px] h-[448px]  pt-[300px] mb-[175px] pl-[170px] pr-[84px]">
+      <div>
+        <p class="text-base leading-6 font-semibold">Mật Khẩu Mới</p>
+        <p class="text-[30px] font-bold leading-9 mt-3">Tạo Mật Khẩu Mới !</p>
+      </div>
+      <div class="pt-12">
+        <div>
+          <app-primary-input
+            title="Mật Khẩu mới"
+            [isPassword]="true"
+            placeholder="Mật Khẩu Mới"
+          ></app-primary-input>
+        </div>
+        <div class="mt-6">
+          <app-primary-input
+            title="Nhập Lại Mật Khẩu mới"
+            [isPassword]="true"
+            placeholder="Nhập Lại Mật Khẩu Mới"
+          ></app-primary-input>
+        </div>
+      </div>
+      <div class="text-center  mt-10">
+        <button class="bg-primaryYellowe text-[20px] py-[14px] w-full text-white rounded mb-4">LƯU</button>
+        <span>
+          Trở Về
+          <span
+            class="text-primaryYellowe cursor-pointer"
+            (click)="back()"
+          >
+            Đăng Nhập
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="w-[60%] h-full   content-[url('/assets/img/login.png')] relative"></div>
+</div>
+<app-toast
+  id="notifi"
+  class=" "
+  statusToast="{{statusToast}}"
+  MessToast="{{MessToast}}"
+></app-toast>

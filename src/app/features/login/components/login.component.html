@@ -1,0 +1,70 @@
+<div
+  class="flex font-Mulish w-full h-full"
+  [formGroup]="form"
+>
+  <div class="w-[40%]">
+    <div class="max-w-[600px] h-[448px]  pt-[300px] mb-[175px] pl-[170px] pr-[84px]">
+      <div>
+        <p class="text-base leading-6 font-semibold">Đăng Nhập</p>
+        <p class="text-[30px] font-bold leading-9 mt-3">Chào Mừng Trờ Lại</p>
+      </div>
+      <div>
+        <div class="mt-10 -z-40">
+          <app-primary-input
+            formControlName="username"
+            [formFieldControl]="fields.username"
+            [(ngModel)]="txtusername"
+            [errrorMessages]="usernameFieldErrors"
+            title="Tên Đăng Nhập"
+            [Primary]="false"
+            placeholder="Tên Đăng Nhập"
+          >
+          </app-primary-input>
+        </div>
+        <div class="mt-5">
+          <app-primary-input
+            formControlName="password"
+            [formFieldControl]="fields.password"
+            [(ngModel)]="txtpassword"
+            [errrorMessages]="passwordFieldErrors"
+            title="Mật Khẩu"
+            [isPassword]="true"
+            [Primary]="false"
+            placeholder="Mật Khẩu"
+          >
+          </app-primary-input>
+        </div>
+      </div>
+      <div class="flex justify-between mt-5 text-textblue">
+        <div class="flex">
+          <img
+            src="/assets/icons/non-checkbox.svg"
+            class="w-5 h-5"
+          >
+          <span class="ml-1">Nhớ mật khẩu</span>
+        </div>
+        <span
+          (click)="forgot()"
+          class="cursor-pointer "
+        >
+          Quên mật khẩu
+        </span>
+      </div>
+      <div class="text-center  mt-10">
+        <button
+          (click)="login()"
+          class="bg-primaryYellowe text-[20px] py-[16px] w-full text-white rounded "
+        >
+          Đăng Nhập
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="w-[60%] h-full content-[url('/assets/img/login.png')]"></div>
+</div>
+<app-toast
+  id="notifi"
+  class=" "
+  statusToast="{{statusToast}}"
+  MessToast="{{MessToast}}"
+></app-toast>
