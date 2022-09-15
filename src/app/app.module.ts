@@ -29,6 +29,7 @@ import { UserListingComponent } from "./features/user-listing/user-listing.compo
 import { NgxPaginationModule } from "ngx-pagination";
 import { ChangePasswordComponent } from './features/change-password/change-password.component';
 import { WellcomeComponent } from './features/wellcome/wellcome.component';
+import { ResetpwUIComponent } from './resetpw-ui/resetpw-ui.component';
 
 function httpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -45,6 +46,7 @@ function httpLoaderFactory(http: HttpClient) {
     UserListingComponent,
     ChangePasswordComponent,
     WellcomeComponent,
+    ResetpwUIComponent,
   ],
   imports: [
     BrowserModule,

@@ -55,7 +55,11 @@ module.exports = {
       primaryYellowe: '#FFB400',
       '00388C': '#00388C',
       '4EA0D1': '#4EA0D1',
-      '003760':'#003760'
+      '003760':'#003760',
+      placeholderColor: theme => theme('colors'),
+          placeholderColor: {
+            
+          },
     },
     fontFamily: {
      
@@ -66,6 +70,7 @@ module.exports = {
       sm: '320px', // landscape mobile // fixed width // same design as portrait mobile
       md: '467px', // tablet // fixed width
       lg: '767px', // laptop // fixed width
+      gl : '800px',
       xl: '1024px', // desktop // fixed width
     },
     container: {
@@ -81,6 +86,9 @@ module.exports = {
     },
     fontSize: {
       l: ['16px', '22px'],
+      mkm :['1.5rem' , '1.5rem'],
+      tmkm :['1.875rem','2.25rem'],
+      erp :['2.125rem', '2.25rem']
     }
   },
   plugins: [],
